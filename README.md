@@ -1,16 +1,16 @@
 # Reto 3: Fuga de información
 
-**Caso:** Un antiguo colaborador se llevó el diseño del nuevo producto.
+> Un antiguo colaborador se llevó el diseño del nuevo producto
 
-**Integrantes:** Rubén · Pau · Alex · Daniel
+**Rubén · Pau · Alex · Daniel**
 
 ## ¿Qué ha pasado?
 
 - Empresa de ingeniería con oficina, wifi y colaboradores que trabajan en remoto.
 - Seis meses de trabajo en el diseño de un nuevo producto.
 - Una startup lanza un diseño idéntico justo antes que nosotros.
-- Los ex-colaboradores conservaban acceso remoto porque no se les revocó.
-- Los registros de acceso, con copia de seguridad, identifican al usuario y el momento de la copia.
+- Los ex-colaboradores conservaban acceso remoto: no se les revocó.
+- Los registros de acceso (con copia de seguridad) identifican al usuario y el momento de la copia.
 
 ## Fallos detectados
 
@@ -40,7 +40,7 @@
 ### Daniel
 - Revocar el acceso de forma automática.
 - Notificar los términos legales; demanda si hay filtración.
-- Avisar antes a los administradores y reportar a RRHH.
+- Avisar antes a los admins y reportar a RRHH.
 
 ## Medidas de prevención (lo que coincide)
 
@@ -56,11 +56,11 @@
 - Demanda al ex-colaborador y a la nueva empresa si sabía que la información era robada.
 - Los logs sirven como prueba: usuario y momento de la copia.
 - Pérdidas económicas importantes y pérdida de confianza de los inversores.
-- Según el PPTX, no hay datos personales afectados, así que no hay problema con la AEPD/LOPD.
+- No hay datos personales afectados, así que no hay problema con la AEPD/LOPD.
 
 ## Conclusión
 
 - La fuga se pudo evitar con un proceso de baja claro y automático.
-- La tecnología —cifrado y logs— solo funciona si se aplica.
-- Punto de debate: 24 h de margen para retirar datos (Rubén) frente a revocación inmediata (Pau y Daniel).
-- Recomendación: revocación inmediata y entrega de datos personales por un canal controlado.
+- La tecnología (cifrado, logs) solo funciona si se aplica.
+- Punto de debate: 24 h de margen para retirar datos (Rubén) frente a revocación inmediata (Pau, Daniel).
+- Nuestra recomendación: revocación inmediata y entrega de datos personales por un canal controlado.
