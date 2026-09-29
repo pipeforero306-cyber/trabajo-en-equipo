@@ -1,4 +1,4 @@
-# trabajo-en-equipo
+# trabajo en equipo
 
 
 RUBEN IDEA : 1- Quitar el acceso a los extrabajadores de la empresa para evitar mas filtraciones de futuros trabajos. 2- No deberían de dejar acceso a los trabajadores que fueron despedidos y darles un margen de 24h para retirar datos personales de sus cuentas. 3- Se podría haber evitado avisando los de RRHH a los del equipo de informática para revocar los permisos de cada usuario.
