@@ -1,84 +1,66 @@
 # Reto 3: Fuga de información
 
-> **Caso de ciberseguridad:** un antiguo colaborador se llevó el diseño del nuevo producto.
+**Caso:** Un antiguo colaborador se llevó el diseño del nuevo producto.
 
 **Integrantes:** Rubén · Pau · Alex · Daniel
 
----
-
 ## ¿Qué ha pasado?
 
-Una empresa de ingeniería, con oficina, Wi-Fi corporativo y colaboradores que trabajan en remoto, lleva seis meses desarrollando el diseño de un nuevo producto.
-
-Justo antes de su lanzamiento, una startup presenta un diseño idéntico. La investigación muestra que antiguos colaboradores todavía tenían acceso remoto porque sus permisos no se revocaron al finalizar su relación con la empresa. Los registros de acceso, respaldados mediante copias de seguridad, permiten identificar al usuario y el momento en que se produjo la copia.
-
----
+- Empresa de ingeniería con oficina, wifi y colaboradores que trabajan en remoto.
+- Seis meses de trabajo en el diseño de un nuevo producto.
+- Una startup lanza un diseño idéntico justo antes que nosotros.
+- Los ex-colaboradores conservaban acceso remoto porque no se les revocó.
+- Los registros de acceso, con copia de seguridad, identifican al usuario y el momento de la copia.
 
 ## Fallos detectados
 
-- **Accesos remotos no revocados:** antiguos colaboradores conservaron permisos de acceso.
-- **Información confidencial sin cifrar:** existía un procedimiento, pero no se aplicaba de forma efectiva.
-- **Falta de coordinación:** RRHH, la gestoría y el área informática no compartían un proceso de bajas.
-- **Rotación de colaboradores externos:** hubo numerosos cambios durante el año sin una revisión suficiente de cuentas y permisos.
-- **Aspectos positivos:** los logs estaban activos, tenían copias de seguridad y se habían firmado acuerdos de confidencialidad.
+- Accesos remotos sin revocar a colaboradores que se fueron.
+- Información confidencial sin cifrar: el procedimiento existía, pero no se aplicaba.
+- RRHH (gestoría) e informática sin coordinación al producirse las bajas.
+- Muchos cambios de colaboradores externos en un año, sin control de accesos.
+- Punto a favor: logs activos y con backup, y acuerdos de confidencialidad firmados.
 
----
+## Nuestras ideas
 
-## Aportaciones del equipo
+### Rubén
+- Quitar el acceso a los ex-trabajadores.
+- Margen de 24 h para retirar datos personales.
+- RRHH avisa a informática para revocar permisos.
 
-| Integrante | Propuestas principales |
-|---|---|
-| Rubén | Retirar accesos a ex-trabajadores, coordinar RRHH con informática y entregar los datos personales por un canal controlado. |
-| Pau | Aplicar un protocolo de baja inmediato y valorar acciones legales contra el ex-colaborador y la empresa receptora si conocía el origen ilícito de la información. |
-| Alex | Mejorar el cifrado como capa de protección y desactivar o eliminar usuarios inactivos de forma continuada. |
-| Daniel | Automatizar la revocación de acceso, avisar a administradores y comunicar el incidente a RRHH. |
+### Pau
+- Demandar al ex-colaborador y a la otra empresa si sabía del robo.
+- Protocolo de bajas: quitar el acceso al instante.
+- Opina que no era evitable por errores previos.
 
----
+### Alex
+- Mejorar el cifrado de datos como red de seguridad.
+- Nunca dejar de borrar usuarios inactivos.
+- Hay casos en que un fallo puede ocurrir.
 
-## Medidas de prevención
+### Daniel
+- Revocar el acceso de forma automática.
+- Notificar los términos legales; demanda si hay filtración.
+- Avisar antes a los administradores y reportar a RRHH.
 
-1. **Revocar los accesos de inmediato** al producirse una baja. No debe existir un margen de 24 horas con acceso activo.
-2. **Automatizar el offboarding:** la baja comunicada por RRHH debe generar una tarea registrada para Sistemas y revocar cuentas, VPN, correo, aplicaciones SaaS, sesiones, tokens, claves API y credenciales compartidas.
-3. **Aplicar el principio de mínimo privilegio:** cada usuario debe tener solo los permisos imprescindibles para realizar su trabajo.
-4. **Usar MFA:** habilitar autenticación multifactor para VPN, correo, repositorios, almacenamiento y aplicaciones críticas.
-5. **Cifrar la información confidencial:** proteger los datos almacenados y transmitidos, y custodiar correctamente las claves de cifrado.
-6. **Auditar usuarios y permisos:** revisar periódicamente cuentas activas, privilegios, colaboradores externos y accesos administrativos.
-7. **Monitorizar y conservar logs:** mantener registros centralizados, protegidos y con copias de seguridad; revisar alertas relacionadas con descargas o copias inusuales.
-8. **Formalizar la salida:** recordar las obligaciones de confidencialidad y exigir la devolución o eliminación de la información corporativa por un procedimiento verificable.
+## Medidas de prevención (lo que coincide)
 
----
+- Revocar accesos de inmediato, idealmente de forma automática, al producirse la baja.
+- Coordinar RRHH e informática: cada baja genera un aviso a sistemas.
+- Cifrar la información confidencial y aplicar el procedimiento siempre.
+- Mantener y revisar los registros de acceso y sus copias.
+- Auditar periódicamente usuarios activos y colaboradores externos.
 
-## Respuesta ante el incidente
+## Vía legal y consecuencias
 
-1. **Contener:** bloquear cuentas, sesiones y accesos sospechosos; revocar permisos y rotar contraseñas, tokens, claves API y secretos compartidos.
-2. **Preservar pruebas:** conservar logs, copias de seguridad, correos, dispositivos y cualquier evidencia, respetando su integridad y trazabilidad.
-3. **Investigar:** identificar qué información se copió, por quién, cuándo, desde dónde y si se transfirió a terceros.
-4. **Coordinar internamente:** informar a dirección, RRHH, responsables de seguridad, sistemas y asesoría jurídica.
-5. **Evaluar datos personales:** comprobar si la fuga incluye datos personales y el riesgo que puede causar a las personas afectadas.
-6. **Documentar:** registrar las decisiones, evidencias, medidas adoptadas y la evaluación de riesgos.
-
----
-
-## Vía legal y protección de datos
-
-Los acuerdos de confidencialidad firmados y los logs pueden servir de base probatoria. En España, la **Ley 1/2019 de Secretos Empresariales** protege información que sea secreta, tenga valor empresarial por ser secreta y haya sido objeto de medidas razonables de protección. La obtención, utilización o revelación sin consentimiento puede ser ilícita.
-
-Si el incidente afecta a **datos personales**, la organización debe valorar la notificación de la brecha a la autoridad de control. Cuando la brecha pueda suponer un riesgo para los derechos y libertades de las personas, el RGPD exige notificarla sin dilación indebida y, cuando sea posible, dentro de las 72 horas posteriores a tener conocimiento. Aunque no sea necesario notificarla, debe documentarse la evaluación y la decisión tomada.
-
-La fuga puede generar pérdidas económicas, pérdida de ventaja competitiva, daño reputacional, pérdida de confianza de clientes o inversores y posibles responsabilidades contractuales, civiles o penales, según los hechos.
-
----
+- Los acuerdos de confidencialidad estaban firmados: se pueden emprender acciones legales.
+- Demanda al ex-colaborador y a la nueva empresa si sabía que la información era robada.
+- Los logs sirven como prueba: usuario y momento de la copia.
+- Pérdidas económicas importantes y pérdida de confianza de los inversores.
+- Según el PPTX, no hay datos personales afectados, así que no hay problema con la AEPD/LOPD.
 
 ## Conclusión
 
-La fuga se podía haber evitado mediante un proceso de baja claro, coordinado y automatizado. El cifrado, los logs y los acuerdos de confidencialidad son importantes, pero solo resultan eficaces si se aplican de forma constante.
-
-**Recomendación final:** revocación inmediata de accesos, proceso de offboarding automatizado, auditorías periódicas y entrega de datos personales exclusivamente por un canal controlado.
-
----
-
-## Fuentes
-
-- [AEPD — Notificación de brechas de datos personales](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/brechas-de-datos-personales-notificacion)
-- [BOE — Ley 1/2019, de Secretos Empresariales](https://www.boe.es/buscar/doc.php?id=BOE-A-2019-2364)
-- [ENISA — Insider Threat](https://www.enisa.europa.eu/sites/default/files/publications/ETL2020%20-%20Insider-Threat%20A4.pdf)
+- La fuga se pudo evitar con un proceso de baja claro y automático.
+- La tecnología —cifrado y logs— solo funciona si se aplica.
+- Punto de debate: 24 h de margen para retirar datos (Rubén) frente a revocación inmediata (Pau y Daniel).
+- Recomendación: revocación inmediata y entrega de datos personales por un canal controlado.
